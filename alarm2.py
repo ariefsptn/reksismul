@@ -40,6 +40,10 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+
+	self.timer = QtCore.QTimer(MainWindow)
+	self.timer.timeout.connect(self.Time)
+	self.timer.start(1000)
 	
 	current_time = QtCore.QTime()
         self.Set_Time = QtGui.QTimeEdit(self.centralwidget)
@@ -49,7 +53,8 @@ class Ui_MainWindow(object):
 
         self.pushButton = QtGui.QPushButton(self.centralwidget)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.gridLayout.addWidget(self.pushButton, 3, 0, 1, 1)
+        self.pushButton.clicked.connect(self.button_pressed)
+	self.gridLayout.addWidget(self.pushButton, 3, 0, 1, 1)
 
         self.label_2 = QtGui.QLabel(self.centralwidget)
         self.label_2.setObjectName(_fromUtf8("label_2"))
