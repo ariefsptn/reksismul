@@ -120,7 +120,71 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Soal", None))
         self.pushButton.setText(_translate("MainWindow", "Set Alarm", None))
 
-    
+    ef get_user_solution(self):
+        
+        self.sol1 = self.solution
+        self.sol2 = self.solution + random.randrange(1,10)
+        self.sol3 = self.solution - random.randrange(1,10)
+        self.sol4 = self.solution - random.randrange(1,10)
+        while (self.sol4 == self.sol3 ):
+            self.sol4 = self.solution - random.randrange(1,10)
+            pil1 = random.randrange(1,5)
+            pil2 = random.randrange(1,5)
+            pil3 = random.randrange(1,5)
+            pil4 = random.randrange(1,5)
+        if (pil2 == pil1):
+            pil2 = random.randrange(1,5)
+        while ((pil3 == pil2) or (pil3 == pil1)):
+            pil3 = random.randrange(1,5)
+        while ((pil4 == pil3) or (pil4 == pil2) or (pil4 == pil1)):
+            pil4 = random.randrange(1,5)
+
+        if (pil1 == 1):
+            pilihan1 = "1. " + str(self.sol1)
+            self.user_solution = 1
+        elif (pil1 == 2):
+            pilihan1 = "1. " + str(self.sol2)
+        elif (pil1 == 3):
+            pilihan1 = "1. " + str(self.sol3)
+        else:
+            pilihan1 = "1. " + str(self.sol4)
+
+        if (pil2 == 1):
+            pilihan2 = "2. " + str(self.sol1)
+            self.user_solution = 2 
+        elif (pil2 == 2):
+            pilihan2 = "2. " + str(self.sol2)
+        elif (pil2 == 3):
+            pilihan2 = "2. " + str(self.sol3)
+        else:
+            pilihan2 = "2. " + str(self.sol4)
+
+        if (pil3 == 1):
+            pilihan3 = "3. " + str(self.sol1)
+            self.user_solution = 3
+        elif (pil3 == 2):
+            pilihan3 = "3. " + str(self.sol2)
+        elif (pil3 == 3):
+            pilihan3 = "3. " + str(self.sol3)
+        else:
+            pilihan3 = "3. " + str(self.sol4)
+
+        if (pil4 == 1):
+            pilihan4 = "4. " + str(self.sol1)
+            self.user_solution = 4
+        elif (pil4 == 2):
+            pilihan4 = "4. " + str(self.sol2)
+        elif (pil4 == 3):
+            pilihan4 = "4. " + str(self.sol3)
+        else:
+            pilihan4 = "4. " + str(self.sol4)
+
+        self.pushButton_2.setText(_translate("MainWindow",pilihan1, None))
+        self.pushButton_3.setText(_translate("MainWindow",pilihan2, None))
+        self.pushButton_4.setText(_translate("MainWindow",pilihan3, None))
+        self.pushButton_5.setText(_translate("MainWindow",pilihan4, None))
+       
+
     def Time(self): #Function to compare current time with set time 
         self.Time_LCD.display(strftime("%H"+":"+"%M"+":"+"%S"))
         self.current_h = int (strftime("%H"))
@@ -178,71 +242,7 @@ class Ui_MainWindow(object):
         
         
 
-    def get_user_solution(self):
-        
-        self.sol1 = self.solution
-        self.sol2 = self.solution + random.randrange(1,10)
-        self.sol3 = self.solution - random.randrange(1,10)
-        self.sol4 = self.solution - random.randrange(1,10)
-        while (self.sol4 == self.sol3 ):
-            self.sol4 = self.solution - random.randrange(1,10)
-            pil1 = random.randrange(1,5)
-            pil2 = random.randrange(1,5)
-            pil3 = random.randrange(1,5)
-            pil4 = random.randrange(1,5)
-        if (pil2 == pil1):
-            pil2 = random.randrange(1,5)
-        while ((pil3 == pil2) or (pil3 == pil1)):
-            pil3 = random.randrange(1,5)
-        while ((pil4 == pil3) or (pil4 == pil2) or (pil4 == pil1)):
-            pil4 = random.randrange(1,5)
-
-        if (pil1 == 1):
-            pilihan1 = "1. " + self.sol1
-            self.user_solution = 1
-        elif (pil1 == 2):
-            pilihan1 = "1. " + self.sol2
-        elif (pil1 == 3):
-            pilihan1 = "1. " + self.sol3
-        else:
-            pilihan1 = "1. " + self.sol4
-
-        if (pil2 == 1):
-            pilihan2 = "2. " + self.sol1
-            self.user_solution = 2 
-        elif (pil2 == 2):
-            pilihan2 = "2. " + self.sol2
-        elif (pil2 == 3):
-            pilihan2 = "2. " + self.sol3
-        else:
-            pilihan2 = "2. " + self.sol4
-
-        if (pil3 == 1):
-            pilihan3 = "3. " + self.sol1
-            self.user_solution = 3
-        elif (pil3 == 2):
-            pilihan3 = "3. " + self.sol2
-        elif (pil3 == 3):
-            pilihan3 = "3. " + self.sol3
-        else:
-            pilihan3 = "3. " + self.sol4
-
-        if (pil4 == 1):
-            pilihan4 = "4. " + self.sol1
-            self.user_solution = 4
-        elif (pil4 == 2):
-            pilihan4 = "4. " + self.sol2
-        elif (pil4 == 3):
-            pilihan4 = "4. " + self.sol3
-        else:
-            pilihan4 = "4. " + self.sol4
-
-        self.pushButton_2.setText(_translate("MainWindow",pilihan1, None))
-        self.pushButton_3.setText(_translate("MainWindow",pilihan2, None))
-        self.pushButton_4.setText(_translate("MainWindow",pilihan3, None))
-        self.pushButton_5.setText(_translate("MainWindow",pilihan4, None))
-       
-
+    d
 
         
 
