@@ -139,11 +139,12 @@ class Ui_MainWindow(object):
                 number_two = random.randrange(1, 21)
                 problem = str(number_one) + " + " + str(number_two)
                 self.solution = number_one + number_two
-                self.label2.setText(_translate("MainWindow",problem, None)) #display the message on GUI screen  
-                user_solution = get_user_solution()
+                self.label_2.setText(_translate("MainWindow",problem, None)) #display the message on GUI screen  
+                
+                self.get_user_solution()
                 print("Enter your answer")
-                print(problem, end="")
-                if user_solution == self.input:
+                self.input = input("Jawabannya? ")
+                if self.user_solution == self.input:
                     print("Correct.")
                     correct = True
                 else:
@@ -184,11 +185,11 @@ class Ui_MainWindow(object):
         self.sol3 = self.solution - random.randrange(1,10)
         self.sol4 = self.solution - random.randrange(1,10)
         while (self.sol4 == self.sol3 ):
-        self.sol4 = self.solution - random.randrange(1,10)
-        self.pil1 = random.randrange(1,5)
-        self.pil2 = random.randrange(1,5)
-        self.pil3 = random.randrange(1,5)
-        self.pil4 = random.randrange(1,5)
+            self.sol4 = self.solution - random.randrange(1,10)
+            self.pil1 = random.randrange(1,5)
+            self.pil2 = random.randrange(1,5)
+            self.pil3 = random.randrange(1,5)
+            self.pil4 = random.randrange(1,5)
         if (self.pil2 == self.pil1):
             self.pil2 = random.randrange(1,5)
         while ((self.pil3 == self.pil2) or (self.pil3 == self.pil1)):
@@ -198,7 +199,7 @@ class Ui_MainWindow(object):
 
         if (self.pil1 == 1):
             pilihan1 = "1. " + self.sol1
-            pil = 1
+            self.user_solution = 1
         elif (self.pil1 == 2):
             pilihan1 = "1. " + self.sol2
         elif (self.pil1 == 3):
@@ -208,7 +209,7 @@ class Ui_MainWindow(object):
 
         if (self.pil2 == 1):
             pilihan2 = "2. " + self.sol1
-            pil = 2 
+            self.user_solution = 2 
         elif (self.pil2 == 2):
             pilihan2 = "2. " + self.sol2
         elif (self.pil2 == 3):
@@ -218,7 +219,7 @@ class Ui_MainWindow(object):
 
         if (self.pil3 == 1):
             pilihan3 = "3. " + self.sol1
-            pil = 3
+            self.user_solution = 3
         elif (self.pil3 == 2):
             pilihan3 = "3. " + self.sol2
         elif (self.pil3 == 3):
@@ -228,7 +229,7 @@ class Ui_MainWindow(object):
 
         if (self.pil4 == 1):
             pilihan4 = "4. " + self.sol1
-            pil = 4
+            self.user_solution = 4
         elif (self.pil4 == 2):
             pilihan4 = "4. " + self.sol2
         elif (self.pil4 == 3):
@@ -240,7 +241,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText(_translate("MainWindow",pilihan2, None))
         self.pushButton_4.setText(_translate("MainWindow",pilihan3, None))
         self.pushButton_5.setText(_translate("MainWindow",pilihan4, None))
-        return pil
+       
 
 
         
