@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
         self.alarm_m = 0
     	
     	MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(676, 439)
+        MainWindow.resize(480, 320)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
@@ -186,53 +186,53 @@ class Ui_MainWindow(object):
         self.sol4 = self.solution - random.randrange(1,10)
         while (self.sol4 == self.sol3 ):
             self.sol4 = self.solution - random.randrange(1,10)
-            self.pil1 = random.randrange(1,5)
-            self.pil2 = random.randrange(1,5)
-            self.pil3 = random.randrange(1,5)
-            self.pil4 = random.randrange(1,5)
-        if (self.pil2 == self.pil1):
-            self.pil2 = random.randrange(1,5)
-        while ((self.pil3 == self.pil2) or (self.pil3 == self.pil1)):
-            self.pil3 = random.randrange(1,5)
-        while ((self.pil4 == self.pil3) or (self.pil4 == self.pil2) or (self.pil4 == self.pil1)):
-            self.pil4 = random.randrange(1,5)
+            pil1 = random.randrange(1,5)
+            pil2 = random.randrange(1,5)
+            pil3 = random.randrange(1,5)
+            pil4 = random.randrange(1,5)
+        if (pil2 == pil1):
+            pil2 = random.randrange(1,5)
+        while ((pil3 == pil2) or (pil3 == pil1)):
+            pil3 = random.randrange(1,5)
+        while ((pil4 == pil3) or (pil4 == pil2) or (pil4 == pil1)):
+            pil4 = random.randrange(1,5)
 
-        if (self.pil1 == 1):
+        if (pil1 == 1):
             pilihan1 = "1. " + self.sol1
             self.user_solution = 1
-        elif (self.pil1 == 2):
+        elif (pil1 == 2):
             pilihan1 = "1. " + self.sol2
-        elif (self.pil1 == 3):
+        elif (pil1 == 3):
             pilihan1 = "1. " + self.sol3
         else:
             pilihan1 = "1. " + self.sol4
 
-        if (self.pil2 == 1):
+        if (pil2 == 1):
             pilihan2 = "2. " + self.sol1
             self.user_solution = 2 
-        elif (self.pil2 == 2):
+        elif (pil2 == 2):
             pilihan2 = "2. " + self.sol2
-        elif (self.pil2 == 3):
+        elif (pil2 == 3):
             pilihan2 = "2. " + self.sol3
         else:
             pilihan2 = "2. " + self.sol4
 
-        if (self.pil3 == 1):
+        if (pil3 == 1):
             pilihan3 = "3. " + self.sol1
             self.user_solution = 3
-        elif (self.pil3 == 2):
+        elif (pil3 == 2):
             pilihan3 = "3. " + self.sol2
-        elif (self.pil3 == 3):
+        elif (pil3 == 3):
             pilihan3 = "3. " + self.sol3
         else:
             pilihan3 = "3. " + self.sol4
 
-        if (self.pil4 == 1):
+        if (pil4 == 1):
             pilihan4 = "4. " + self.sol1
             self.user_solution = 4
-        elif (self.pil4 == 2):
+        elif (pil4 == 2):
             pilihan4 = "4. " + self.sol2
-        elif (self.pil4 == 3):
+        elif (pil4 == 3):
             pilihan4 = "4. " + self.sol3
         else:
             pilihan4 = "4. " + self.sol4
