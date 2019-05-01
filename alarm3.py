@@ -300,7 +300,7 @@ class Ui_MainWindow(object):
         #else:  
         #    self.alarm_m = int (alarm_time[23:25]) #value of minute is sotred in index value 23 and 24
 
-        message = "Alarm is set at " + str(self.alarm_h) + " hours " + str(self.alarm_m) + " minutes"
+        message = "Alarm is set at " + str(self.alarm_h) + " : " + str(self.alarm_m) 
         self.label.setText(_translate("MainWindow", message, None)) #display the message on GUI screen  
         #espeak.synth (message) #speak the message through audio jack 
 
