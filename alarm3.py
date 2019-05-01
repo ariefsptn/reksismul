@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
                 #os.system('mplayer alarm2.mp3') 
                 #t = Thread(target=self.alarm,args=(i,) )
                 #t.start()
-                subprocess.call(['gnome-terminal -e "mplayer alarm2.mp3"'], shell=True) 
+                subprocess.call(['lxterminal -e mplayer alarm2.mp3'], shell=True) 
                 number_one = random.randrange(1, 21)
                 number_two = random.randrange(1, 21)
                 problem = str(number_one) + " + " + str(number_two)
