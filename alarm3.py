@@ -11,7 +11,7 @@ import os
 import random
 import subprocess
 
-
+from threading import Thread
 from PyQt4 import QtCore,QtGui #PyQt4 is used for designing the GUI
 #from PyQt4.QtCore import *
 #from PyQt4.QtGui import *
@@ -54,6 +54,7 @@ class Ui_MainWindow(object):
         self.btn2pushed = False
         self.btn3pushed = False
         self.btn4pushed = False
+        self.correct = False
     	
     	MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(480, 320)
@@ -147,7 +148,8 @@ class Ui_MainWindow(object):
     #def get_user_solution(self):
         
         
-       
+    #def alarm():
+        #subprocess.call(['mplayer alarm2.mp3'], shell=True) 
 
     def Time(self): #Function to compare current time with set time 
         self.Time_LCD.display(strftime("%H"+":"+"%M"+":"+"%S"))
@@ -161,10 +163,12 @@ class Ui_MainWindow(object):
              
             self.label.setText(_translate("MainWindow",message1, None)) #display the message on GUI screen  
             #espeak.synth (message) #speak the message through audio jack
-            correct = False
-            while (correct == False):
+            self.correct = False
+            while (self.correct == False):
                 print("ALARM ON!!!!!")
                 #os.system('mplayer alarm2.mp3') 
+                #t = Thread(target=self.alarm,args=(i,) )
+                #t.start()
                 subprocess.call(['mplayer alarm2.mp3'], shell=True) 
                 number_one = random.randrange(1, 21)
                 number_two = random.randrange(1, 21)
@@ -179,15 +183,16 @@ class Ui_MainWindow(object):
                 self.sol4 = self.solution - random.randrange(1,10)
                 while (self.sol4 == self.sol3 ):
                     self.sol4 = self.solution - random.randrange(1,10)
-                    self.pil1 = random.randrange(1,5)
                     
-                    self.pil2 = random.randrange(1,5)
+                self.pil1 = random.randrange(1,5)
+                    
+                self.pil2 = random.randrange(1,5)
                     #global self.pil2
                     
-                    self.pil3 = random.randrange(1,5)
+                self.pil3 = random.randrange(1,5)
                     #global self.pil3
                     
-                    self.pil4 = random.randrange(1,5)
+                self.pil4 = random.randrange(1,5)
                     #global self.pil4
 
                 if (self.pil2 == self.pil1):
@@ -261,10 +266,10 @@ class Ui_MainWindow(object):
                 
                 if self.user_solution == self.input:
                     print("Correct.")
-                    correct = True
+                    self.correct = True
                 else:
                     print("Incorrect.")
-                    correct = False
+                    self.correct = False
             
 
             time.sleep(1)
@@ -274,9 +279,21 @@ class Ui_MainWindow(object):
         print("Button Pressed")
         alarm_time = str(self.Set_Time.time())
         
-
         self.alarm_h = int(alarm_time[19:21]) #value of hour is sotred in index value 19 and 20
         self.alarm_m = int (alarm_time[23:25]) #value of minute is sotred in index value 23 and 24
+
+
+        #if ((int(alarm_time[19:20]) < 10) or (int(alarm_time[23:24] < 10))):
+        #    self.alarm_h = int(alarm_time[19:20])
+        #    self.alarm_m = int(alarm_time[24:25])
+        #else:
+        #    self.alarm_h = int(alarm_time[19:21]) #value of hour is sotred in index value 19 and 20
+        #    self.alarm_m = int(alarm_time[23:25])
+
+        #if (int(alarm_time[23:24]) < 10):
+        #    self.alarm_m = int(alarm_time[23:24])
+        #else:  
+        #    self.alarm_m = int (alarm_time[23:25]) #value of minute is sotred in index value 23 and 24
 
         message = "Alarm is set at " + str(self.alarm_h) + " hours " + str(self.alarm_m) + " minutes"
         self.label.setText(_translate("MainWindow", message, None)) #display the message on GUI screen  
