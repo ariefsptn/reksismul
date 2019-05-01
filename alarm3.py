@@ -163,13 +163,13 @@ class Ui_MainWindow(object):
              
             self.label.setText(_translate("MainWindow",message1, None)) #display the message on GUI screen  
             #espeak.synth (message) #speak the message through audio jack
-            self.correct = False
+            
             while (self.correct == False):
                 print("ALARM ON!!!!!")
                 #os.system('mplayer alarm2.mp3') 
                 #t = Thread(target=self.alarm,args=(i,) )
                 #t.start()
-                subprocess.call(['gnome-terminal -e "mplayer alarm.mp3"'], shell=True) 
+                subprocess.call(['gnome-terminal -e "mplayer alarm2.mp3"'], shell=True) 
                 number_one = random.randrange(1, 21)
                 number_two = random.randrange(1, 21)
                 problem = str(number_one) + " + " + str(number_two)
@@ -266,6 +266,11 @@ class Ui_MainWindow(object):
                 
                 if self.user_solution == self.input:
                     print("Correct.")
+                    self.label_2.setText(_translate("MainWindow", "Jawaban Benar, Alarm berhasil dimatikan", None))
+                    self.pushButton_2.setText(_translate("MainWindow","", None))
+                    self.pushButton_3.setText(_translate("MainWindow","", None))
+                    self.pushButton_4.setText(_translate("MainWindow","", None))
+                    self.pushButton_5.setText(_translate("MainWindow","", None))
                     self.correct = True
                 else:
                     print("Incorrect.")
@@ -281,7 +286,7 @@ class Ui_MainWindow(object):
         
         self.alarm_h = int(alarm_time[19:21]) #value of hour is sotred in index value 19 and 20
         self.alarm_m = int (alarm_time[23:25]) #value of minute is sotred in index value 23 and 24
-
+        self.correct = False
 
         #if ((int(alarm_time[19:20]) < 10) or (int(alarm_time[23:24] < 10))):
         #    self.alarm_h = int(alarm_time[19:20])
